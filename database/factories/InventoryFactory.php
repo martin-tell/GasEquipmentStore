@@ -2,20 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\Inventory;
+use App\Models\InventoryHistory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class InventoryFactory extends Factory
+class InventoryHistoryFactory extends Factory
 {
-    protected $model = Inventory::class;
+    protected $model = InventoryHistory::class;
 
     public function definition()
     {
         return [
-            'ProductoID' => \App\Models\Product::factory(),  // Puedes cambiar esto según tu relación con la tabla 'products'
-            'CantidadDisponible' => $this->faker->numberBetween(10, 100),
-            'UbicaciónEnAlmacén' => $this->faker->word(),
-            'ÚltimaRevisión' => $this->faker->dateTime(),
+            'ProductoID' => \App\Models\Product::factory(),  // Suponiendo que hay una relación con la tabla 'products'
+            'CantidadModificada' => $this->faker->numberBetween(-50, 50),  // Puede ser positivo o negativo
+            'Motivo' => $this->faker->sentence(),
+            'FechaModificación' => $this->faker->dateTime(),
         ];
     }
 }
